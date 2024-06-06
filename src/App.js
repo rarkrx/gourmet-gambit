@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import RandomizePage from "./views/RandomizePage"
+import LoginPage from './views/LoginPage';
+import SignUpPage from "./views/SignUpPage";
+import AddEntry from './views/AddEntry';
+import PageDetails from './views/PageDetails';
+import PageFavs from "./views/PageFavs"
+import PageUpdate from "./views/PageUpdate"
+import PageAllRest from "./views/PageAllRest"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RandomizePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/add" element={<AddEntry />} />
+        <Route path="/posts/:id" element={<PageDetails />} />
+        <Route path="/favs" element={<PageFavs />} />
+        <Route path="/update/:id" element={<PageUpdate />} />
+        <Route path="/allrest" element={<PageAllRest />} />
+        
+      </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
